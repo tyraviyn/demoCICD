@@ -1,0 +1,28 @@
+name: Test CICD
+
+  on: # dn cac su kien de kh
+    pull-request:
+      branches:
+        - manin
+    pull:
+      branches:
+        - main
+
+  jobs: #job la hanh dong
+    biudl:
+      name: Test on Windowns #ten hien thi
+      runs-on: windows-latest #job se chay
+
+      steps: #cac buoc thuc hien
+        - name: Checkout Code
+          uses: actions/checkout@v3 #td cua actions: clone toan bo ma nguon repo
+
+        - name: Set up JDK
+          uses: actions/setup-java@v3 #cai dat jdl
+          with:
+            distribution: 'temurin' #ncc jdl
+            java-version: '20' #pb jdk
+
+        - name: Biudl and test on windows
+          run: mvn clean veify #biudl da
+          #va thuc hien tat ca cac kt dc dn trong da
