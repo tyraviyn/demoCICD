@@ -1,14 +1,14 @@
 name: Test CICD
 
-  on: # dn cac su kien de kh
+on: # dn cac su kien de kh
     pull-request:
       branches:
         - manin
-    pull:
+    push:
       branches:
         - main
 
-  jobs: #job la hanh dong
+jobs: #job la hanh dong
     biudl:
       name: Test on Windowns #ten hien thi
       runs-on: windows-latest #job se chay
